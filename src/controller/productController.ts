@@ -9,6 +9,16 @@ class ProductController {
 
         return res.status(201).send()
     }
+
+    async productsList(req: Request, res: Response) {
+        const readed = await productService.readProductList()
+        return res.status(200).send(readed)
+    }
+
+    async productsStock(req: Request, res: Response) {
+        const readedStock = await productService.readProductsStock()
+        return res.status(200).send(readedStock)
+    }
 }
 
 export default new ProductController()
